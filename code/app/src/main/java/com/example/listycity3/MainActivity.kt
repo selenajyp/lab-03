@@ -30,6 +30,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     CityListScreen(
                         cities = cityRepository.cities,
+                        onAddCity = { cityRepository.addCity(it) },
+                        //basically saying "given these vague vars oldcity and newcity (which dont mean anything), lets call this function and now we can use these vague variables. necessary bcz more than one parameter on this function
+                        onUpdateCity = {oldCity, newCity ->cityRepository.updateCity(oldCity, newCity)},
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
